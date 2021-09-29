@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "cheateroo",
+    "name": "Cheateroo",
+    "version": "${mod_version}",
+
+    "description": "Adds a bunch of configurable client-side cheats",
+    "authors": [
+        "pixy"
+    ],
+    "contact": {
+        "issues": "https://github.com/johannes-schmatz/cheateroo/issues",
+        "sources": "https://github.com/johannes-schmatz/cheateroo"
+    },
+
+    "license": "LGPLv3",
+    "icon": "assets/tweakeroo/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "local.pixy.cheateroo.Cheateroo"
+        ]
+    },
+
+    "mixins": [
+        "mixins.cheateroo.json"
+    ],
+
+    "depends": {
+        "malilib": ">=0.10.0-dev.21"
+    }
+}

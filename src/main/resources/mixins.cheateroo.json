@@ -1,0 +1,18 @@
+{
+    "required": true,
+    "package": "local.pixy.cheateroo.mixins",
+    "minVersion": "0.7",
+    "compatibilityLevel": "JAVA_8",
+    "client": [
+        "MixinCheatFly_LivingEntity",
+        "MixinCheatFly_PlayerEntity",
+        "callback.OnClientChatMessage"
+    ],
+    "mixins": [
+        "csfeature.MerchantLeash"
+    ],
+    "mixinPriority": 900,
+    "injectors": {
+        "defaultRequire": 0
+    }
+}
