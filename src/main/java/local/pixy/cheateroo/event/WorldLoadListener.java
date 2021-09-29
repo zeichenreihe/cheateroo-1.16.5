@@ -1,6 +1,6 @@
 package local.pixy.cheateroo.event;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import fi.dy.masa.malilib.interfaces.IWorldLoadListener;
 import local.pixy.cheateroo.util.DataStorage;

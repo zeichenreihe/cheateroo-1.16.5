@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "cheateroo",
     "name": "Cheateroo",
-    "version": "${mod_version}",
+    "version": "${version}",
 
     "description": "Adds a bunch of configurable client-side cheats",
     "authors": [

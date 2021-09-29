@@ -1,6 +1,6 @@
 package local.pixy.cheateroo.render;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import org.lwjgl.opengl.GL11;
 

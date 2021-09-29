@@ -1,0 +1,13 @@
+{
+    "cheateroo.gui.title.configs": "Cheateroo Config",
+
+    "cheateroo.gui.button.config_gui.cheat_toggles": "Cheat Toggels",
+    "cheateroo.gui.button.config_gui.cheat_hotkeys": "Cheat Hotkeys",
+    "cheateroo.gui.button.config_gui.cs_toggles": "C+S Toggles",
+    "cheateroo.gui.button.config_gui.cs_hotkeys": "C+S Hotkeys",
+
+    "cheateroo.gui.button.config_gui.generic_hotkeys": "Generic Hotkeys",
+
+    "cheateroo.hotkeys.category.generic_hotkeys": "Generic Hotkeys",
+    "cheateroo.hotkeys.category.cheat_toggle_hotkeys": "Cheat Toggels"
+}

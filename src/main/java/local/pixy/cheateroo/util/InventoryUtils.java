@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import fi.dy.masa.malilib.util.Constants;
 import local.pixy.cheateroo.config.FeatureToggle;
