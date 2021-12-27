@@ -1,5 +1,6 @@
 {
     "cheateroo.gui.title.configs": "Cheateroo Config",
+    "cheateroo.label.config_comment.single_player_only": "§6Note: This feature works either at all or§r\n§6at least fully only in single player§r",
 
     "cheateroo.gui.button.config_gui.cheat_toggles": "Cheat Toggels",
     "cheateroo.gui.button.config_gui.cheat_hotkeys": "Cheat Hotkeys",
