@@ -6,7 +6,9 @@
     "client": [
         "MixinCheatFly_LivingEntity",
         "MixinCheatFly_PlayerEntity",
-        "callback.OnClientChatMessage"
+        "callback.OnClientChatMessage",
+        "MixinChristmasChest_ChestBlockEntityRender",
+        "MixinDisableNarratorButton_Keyboard"
     ],
     "mixins": [
         "csfeature.MerchantLeash"
