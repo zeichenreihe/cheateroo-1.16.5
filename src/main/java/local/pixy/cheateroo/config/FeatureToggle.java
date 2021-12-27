@@ -20,8 +20,11 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
 	AUTO_TOTEM("autoTotem", false, false, "", "Toggles Automatic offhand totem, works only if player is not in creative.", "Auto Totem"),
 	CHEAT_FLY("cheatFly", false, false, "", "Toggles the elytra fly hack.", "Cheat Fly"),
 	HIGHLIGHT_BLOCK("highlightBlock", false, false, "Highlights a block thought walls", "X-Ray"),
-	ENABLE_RENDERING("toggleRendering", true, false, "P,R", "Toggles all rendering", "Rendering");
-	
+	ENABLE_RENDERING("toggleRendering", true, false, "P,R", "Toggles all rendering", "Rendering"),
+	OVERRIDE_CHRISTMAS_CHEST("christmasChestEnabled", false, false, "", "Toggles the overwriting of the chest render to use the value from christmasChest for ", "Enable Christmas Chest"),
+	OVERRIDE_CHRISTMAS_CHEST_VALUE("christmasChest", false, false, "", "True leads to gift chests.", "Christmas Chest Texture"),
+	DISABLE_NARRATOR_BUTTON("disableNarratorButton", false, false, "", "Turns off the annoying Ctrl+B narrator cycling.", "Disable Narrator Cycle Button");
+
 	private final String name;
 	private final String comment;
 	private final String prettyName;
@@ -129,7 +132,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
 		}
 
 		if (this.singlePlayer) {
-			return this.comment + "\n" + StringUtils.translate("tweakeroo.label.config_comment.single_player_only");
+			return this.comment + "\n" + StringUtils.translate("cheateroo.label.config_comment.single_player_only");
 		} else {
 			return this.comment;
 		}
