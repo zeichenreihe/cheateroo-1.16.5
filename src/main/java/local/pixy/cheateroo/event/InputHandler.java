@@ -7,13 +7,14 @@ import fi.dy.masa.malilib.hotkeys.IKeybindManager;
 import fi.dy.masa.malilib.hotkeys.IKeybindProvider;
 import fi.dy.masa.malilib.hotkeys.IKeyboardInputHandler;
 import fi.dy.masa.malilib.hotkeys.IMouseInputHandler;
-import local.pixy.cheateroo.Reference;
-import local.pixy.cheateroo.config.Configs;
-import local.pixy.cheateroo.config.FeatureToggle;
-import local.pixy.cheateroo.config.Hotkeys;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.options.GameOptions;
+
+import local.pixy.cheateroo.Reference;
+import local.pixy.cheateroo.config.FeatureToggle;
+import local.pixy.cheateroo.config.Hotkeys;
 
 public class InputHandler implements IKeybindProvider, IKeyboardInputHandler, IMouseInputHandler {
 	private static final InputHandler INSTANCE = new InputHandler();

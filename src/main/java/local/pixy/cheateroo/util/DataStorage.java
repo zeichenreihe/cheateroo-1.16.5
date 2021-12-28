@@ -11,7 +11,7 @@ public class DataStorage {
 	}
 
 	public void reset() {
-		this.highlightBlockPos = new BlockPos(0,0,0);
+		this.highlightBlockPos = new BlockPos(0, 0, 0);
 	}
 
 	public BlockPos getHighlightBlockPos() {

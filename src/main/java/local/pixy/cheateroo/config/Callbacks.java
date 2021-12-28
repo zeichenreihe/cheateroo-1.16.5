@@ -4,8 +4,10 @@ import fi.dy.masa.malilib.gui.GuiBase;
 import fi.dy.masa.malilib.hotkeys.IHotkeyCallback;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
-import local.pixy.cheateroo.gui.GuiConfigs;
+
 import net.minecraft.client.MinecraftClient;
+
+import local.pixy.cheateroo.gui.GuiConfigs;
 
 public class Callbacks {
 
@@ -31,6 +33,7 @@ public class Callbacks {
 			return false;
 		}
 	}
+
 	private static class KeyCallbackHotkeysGeneric implements IHotkeyCallback {
 		private final MinecraftClient mc;
 
@@ -40,8 +43,7 @@ public class Callbacks {
 
 		@Override
 		public boolean onKeyAction(KeyAction action, IKeybind key) {
-			if (key == Hotkeys.OPEN_CONFIG_GUI.getKeybind())
-			{
+			if (key == Hotkeys.OPEN_CONFIG_GUI.getKeybind()) {
 				GuiBase.openGui(new GuiConfigs());
 				return true;
 			}

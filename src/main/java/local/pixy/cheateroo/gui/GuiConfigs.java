@@ -2,7 +2,9 @@ package local.pixy.cheateroo.gui;
 
 import java.util.Collections;
 import java.util.List;
+
 import com.google.common.collect.ImmutableList;
+
 import fi.dy.masa.malilib.config.ConfigType;
 import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
@@ -11,9 +13,10 @@ import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
 import fi.dy.masa.malilib.gui.button.IButtonActionListener;
 import fi.dy.masa.malilib.util.StringUtils;
+
 import local.pixy.cheateroo.Reference;
-import local.pixy.cheateroo.config.FeatureToggle;
 import local.pixy.cheateroo.config.CSToggle;
+import local.pixy.cheateroo.config.FeatureToggle;
 import local.pixy.cheateroo.config.Hotkeys;
 
 public class GuiConfigs extends GuiConfigsBase {

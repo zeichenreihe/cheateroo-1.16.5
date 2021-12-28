@@ -2,6 +2,7 @@ package local.pixy.cheateroo.config;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+
 import fi.dy.masa.malilib.config.ConfigType;
 import fi.dy.masa.malilib.config.IConfigBoolean;
 import fi.dy.masa.malilib.config.IConfigNotifiable;
@@ -13,11 +14,13 @@ import fi.dy.masa.malilib.hotkeys.KeybindMulti;
 import fi.dy.masa.malilib.hotkeys.KeybindSettings;
 import fi.dy.masa.malilib.interfaces.IValueChangeCallback;
 import fi.dy.masa.malilib.util.StringUtils;
+
 import local.pixy.cheateroo.Cheateroo;
 
 public enum CSToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoolean> {
-	MERCHANT_LEASHABLE("merchantLeashable", false, true, "", "Toggles leashable MerchantEntities ( = villagers, wandering traders).", "Leashable Merchant Entites");
-	
+	MERCHANT_LEASHABLE("merchantLeashable", false, true, "",
+			"Toggles leashable MerchantEntities ( = villagers, wandering traders).", "Leashable Merchant Entites");
+
 	private final String name;
 	private final String comment;
 	private final String prettyName;
@@ -31,8 +34,7 @@ public enum CSToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoole
 		this(name, defaultValue, false, defaultHotkey, KeybindSettings.DEFAULT, comment);
 	}
 
-	private CSToggle(String name, boolean defaultValue, boolean singlePlayer, String defaultHotkey,
-			String comment) {
+	private CSToggle(String name, boolean defaultValue, boolean singlePlayer, String defaultHotkey, String comment) {
 		this(name, defaultValue, singlePlayer, defaultHotkey, KeybindSettings.DEFAULT, comment);
 	}
 

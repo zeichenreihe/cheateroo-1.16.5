@@ -1,6 +1,7 @@
 package local.pixy.cheateroo.render;
 
 import fi.dy.masa.malilib.util.Color4f;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.util.math.BlockPos;
@@ -15,9 +16,8 @@ public class RenderUtils {
 	 * @param buffer
 	 * @param mc
 	 */
-	public static void drawBlockBoundingBoxOutlinesBatchedLines(BlockPos pos, Color4f color,
-			double expand, BufferBuilder buffer, MinecraftClient mc)
-	{
+	public static void drawBlockBoundingBoxOutlinesBatchedLines(BlockPos pos, Color4f color, double expand,
+			BufferBuilder buffer, MinecraftClient mc) {
 		Vec3d cameraPos = mc.gameRenderer.getCamera().getPos();
 		final double dx = cameraPos.x;
 		final double dy = cameraPos.y;
@@ -30,6 +30,7 @@ public class RenderUtils {
 		double maxY = pos.getY() - dy + expand + 1;
 		double maxZ = pos.getZ() - dz + expand + 1;
 
-		fi.dy.masa.malilib.render.RenderUtils.drawBoxAllEdgesBatchedLines(minX, minY, minZ, maxX, maxY, maxZ, color, buffer);
+		fi.dy.masa.malilib.render.RenderUtils.drawBoxAllEdgesBatchedLines(minX, minY, minZ, maxX, maxY, maxZ, color,
+				buffer);
 	}
 }

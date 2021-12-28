@@ -10,6 +10,7 @@ import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
+
 import local.pixy.cheateroo.Reference;
 
 public class Configs implements IConfigHandler {

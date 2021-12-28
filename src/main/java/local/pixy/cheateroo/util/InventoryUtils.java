@@ -7,7 +7,7 @@ import java.util.List;
 import org.jetbrains.annotations.Nullable;
 
 import fi.dy.masa.malilib.util.Constants;
-import local.pixy.cheateroo.config.FeatureToggle;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,6 +22,8 @@ import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
 
+import local.pixy.cheateroo.config.FeatureToggle;
+
 /**
  * @author pixy
  * 
@@ -34,6 +36,7 @@ public class InventoryUtils {
 	/**
 	 * Returns the equipment type for the given slot number, assuming that the slot
 	 * number is for the player's main inventory container
+	 * 
 	 * @param slotNum
 	 * @param player
 	 * @return
@@ -63,6 +66,7 @@ public class InventoryUtils {
 	/**
 	 * Returns the slot number for the given equipment type in the player's
 	 * inventory container
+	 * 
 	 * @param type
 	 * @param player
 	 * @return
@@ -103,6 +107,7 @@ public class InventoryUtils {
 
 	/**
 	 * Tries to restock the totem.
+	 * 
 	 * @param player
 	 * @param allowHotbar
 	 */
@@ -208,6 +213,7 @@ public class InventoryUtils {
 
 	/**
 	 * cleans BlockEntitiyTag.Items, from a ShulkerBox item
+	 * 
 	 * @param stack
 	 * @return
 	 */
