@@ -1,20 +1,24 @@
 {
-    "required": true,
-    "package": "local.pixy.cheateroo.mixins",
-    "minVersion": "0.7",
-    "compatibilityLevel": "JAVA_8",
-    "client": [
-        "MixinCheatFly_LivingEntity",
-        "MixinCheatFly_PlayerEntity",
-        "callback.OnClientChatMessage",
-        "MixinChristmasChest_ChestBlockEntityRender",
-        "MixinDisableNarratorButton_Keyboard"
-    ],
-    "mixins": [
-        "csfeature.MerchantLeash"
-    ],
-    "mixinPriority": 900,
-    "injectors": {
-        "defaultRequire": 0
-    }
+	"required": true,
+	"package": "local.pixy.cheateroo.mixins",
+	"minVersion": "0.7",
+	"compatibilityLevel": "JAVA_8",
+	"client": [
+		"MixinCheatFly_LivingEntity",
+		"MixinCheatFly_PlayerEntity",
+		"callback.OnClientChatMessage",
+		"MixinChristmasChest_ChestBlockEntityRender",
+		"MixinDisableNarratorButton_Keyboard"
+	],
+	"server": [
+		"server.MixinChunkTicket_AbstractBlockState",
+		"server.MixinChunkTicket_ServerWorld"
+	],
+	"mixins": [
+		"csfeature.MerchantLeash"
+	],
+	"mixinPriority": 900,
+	"injectors": {
+		"defaultRequire": 0
+	}
 }
