@@ -10,6 +10,10 @@ public class DataStorage {
 		return INSTANCE;
 	}
 
+	/**
+	 * 
+	 * Resets the DataStorage
+	 */
 	public void reset() {
 		this.highlightBlockPos = new BlockPos(0, 0, 0);
 	}
