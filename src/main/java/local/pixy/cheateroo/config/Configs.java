@@ -7,13 +7,19 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import fi.dy.masa.malilib.config.ConfigUtils;
+import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
+import fi.dy.masa.malilib.config.options.ConfigInteger;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
 
 import local.pixy.cheateroo.Reference;
 
 public class Configs implements IConfigHandler {
+	public static class Values {
+		public static final ConfigInteger CHUNK_LOADING_TIME = new ConfigInteger("chunkLoadingTime", 20, 1, 9000, false, "The amount of ticks a chunk keeps loaded by the chunk load on blockupdate feature.");
+		public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(CHUNK_LOADING_TIME);
+	}
 	private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
 	public static void loadFromFile() {
@@ -25,11 +31,14 @@ public class Configs implements IConfigHandler {
 			if (element != null && element.isJsonObject()) {
 				JsonObject root = element.getAsJsonObject();
 
+				ConfigUtils.readConfigBase(root, "Values", Configs.Values.OPTIONS);
 				ConfigUtils.readConfigBase(root, "GenericHotkeys", Hotkeys.HOTKEY_LIST);
 				ConfigUtils.readHotkeyToggleOptions(root, "CheatHotkeys", "CheatToggles",
 						ImmutableList.copyOf(FeatureToggle.values()));
 				ConfigUtils.readHotkeyToggleOptions(root, "CSHotkeys", "CSToggles",
 						ImmutableList.copyOf(CSToggle.values()));
+				
+				Configs.Values.CHUNK_LOADING_TIME.onValueChanged();
 			}
 		}
 	}
@@ -40,6 +49,7 @@ public class Configs implements IConfigHandler {
 		if ((dir.exists() && dir.isDirectory()) || dir.mkdirs()) {
 			JsonObject root = new JsonObject();
 
+			ConfigUtils.writeConfigBase(root, "Values", Configs.Values.OPTIONS);
 			ConfigUtils.writeConfigBase(root, "GenericHotkeys", Hotkeys.HOTKEY_LIST);
 			ConfigUtils.writeHotkeyToggleOptions(root, "CheatHotkeys", "CheatToggles",
 					ImmutableList.copyOf(FeatureToggle.values()));

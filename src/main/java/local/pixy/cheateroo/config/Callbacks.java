@@ -8,6 +8,7 @@ import fi.dy.masa.malilib.hotkeys.KeyAction;
 import net.minecraft.client.MinecraftClient;
 
 import local.pixy.cheateroo.gui.GuiConfigs;
+import local.pixy.cheateroo.server.ChunkTicket;
 
 public class Callbacks {
 
@@ -18,7 +19,7 @@ public class Callbacks {
 
 		Hotkeys.OPEN_CONFIG_GUI.getKeybind().setCallback(callbackGeneric);
 		Hotkeys.SET_HIGHLIGHT_BLOCK.getKeybind().setCallback(callbackGeneric);
-
+		Configs.Values.CHUNK_LOADING_TIME.setValueChangeCallback(new ChunkTicket.TicketCallback());
 	}
 
 	public static class KeyCallbackHotkeyWithMessage implements IHotkeyCallback {

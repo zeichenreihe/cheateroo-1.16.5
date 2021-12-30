@@ -16,11 +16,12 @@ import fi.dy.masa.malilib.util.StringUtils;
 
 import local.pixy.cheateroo.Reference;
 import local.pixy.cheateroo.config.CSToggle;
+import local.pixy.cheateroo.config.Configs;
 import local.pixy.cheateroo.config.FeatureToggle;
 import local.pixy.cheateroo.config.Hotkeys;
 
 public class GuiConfigs extends GuiConfigsBase {
-	private static ConfigGuiTab tab = ConfigGuiTab.CHEAT_TOGGLES;
+	private static ConfigGuiTab tab = ConfigGuiTab.VALUES;
 
 	public GuiConfigs() {
 		super(10, 50, Reference.MOD_ID, null, "cheateroo.gui.title.configs");
@@ -68,7 +69,9 @@ public class GuiConfigs extends GuiConfigsBase {
 		List<? extends IConfigBase> configs;
 		ConfigGuiTab tab = GuiConfigs.tab;
 
-		if (tab == ConfigGuiTab.CHEAT_TOGGLES) {
+		if (tab == ConfigGuiTab.VALUES) {
+			configs = Configs.Values.OPTIONS;
+		} else if (tab == ConfigGuiTab.CHEAT_TOGGLES) {
 			configs = ConfigUtils.createConfigWrapperForType(ConfigType.BOOLEAN,
 					ImmutableList.copyOf(FeatureToggle.values()));
 		} else if (tab == ConfigGuiTab.CHEAT_HOTKEYS) {
@@ -109,6 +112,7 @@ public class GuiConfigs extends GuiConfigsBase {
 	}
 
 	public enum ConfigGuiTab {
+		VALUES("cheateroo.gui.button.config_gui.values"),
 		CHEAT_TOGGLES("cheateroo.gui.button.config_gui.cheat_toggles"),
 		CHEAT_HOTKEYS("cheateroo.gui.button.config_gui.cheat_hotkeys"),
 		CS_TOGGLES("cheateroo.gui.button.config_gui.cs_toggles"),
