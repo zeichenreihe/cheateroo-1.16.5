@@ -14,7 +14,7 @@
     },
 
     "license": "LGPLv3",
-    "icon": "assets/tweakeroo/icon.png",
+    "icon": "assets/cheateroo/icon.png",
     "environment": "client",
     "entrypoints": {
         "main": [
