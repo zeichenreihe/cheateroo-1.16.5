@@ -7,7 +7,7 @@ import net.minecraft.util.math.Vec3i;
 public class ParseUtils {
 	/**
 	 * Converts a String like "10 20 30" into a Vec3i that will then contain 10 20
-	 * 30.
+	 * 30. If a parsing error occurs it will return a Vec3i with 0 0 0.
 	 * 
 	 * @param input
 	 * @return

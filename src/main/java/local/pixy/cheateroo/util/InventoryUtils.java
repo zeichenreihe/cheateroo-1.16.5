@@ -1,7 +1,6 @@
 package local.pixy.cheateroo.util; // this file is from masa's tweakeroo: fi.dy.masa.tweakeroo.util.InventoryUtils
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
@@ -11,7 +10,6 @@ import fi.dy.masa.malilib.util.Constants;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -30,8 +28,6 @@ import local.pixy.cheateroo.config.FeatureToggle;
  */
 public class InventoryUtils {
 	private static final List<EquipmentSlot> REPAIR_MODE_SLOTS = new ArrayList<>();
-	private static final List<Integer> REPAIR_MODE_SLOT_NUMBES = new ArrayList<>();
-	private static final HashSet<Item> UNSTACKING_ITEMS = new HashSet<>();
 
 	/**
 	 * Returns the equipment type for the given slot number, assuming that the slot
@@ -121,10 +117,12 @@ public class InventoryUtils {
 	}
 
 	/**
+	 * Returns if the slot's id is >= 36 and <= 44
+	 * 
 	 * @param slot
 	 * @return
 	 */
-	private static boolean isHotbarSlot(Slot slot) {
+	public static boolean isHotbarSlot(Slot slot) {
 		return slot.id >= 36 && slot.id <= 44;
 	}
 
