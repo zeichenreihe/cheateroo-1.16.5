@@ -19,7 +19,9 @@ import local.pixy.cheateroo.Cheateroo;
 
 public enum CSToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoolean> {
 	MERCHANT_LEASHABLE("merchantLeashable", false, true, "",
-			"Toggles leashable MerchantEntities ( = villagers, wandering traders).", "Leashable Merchant Entites");
+			"Toggles leashable MerchantEntities ( = villagers, wandering traders).", "Leashable Merchant Entites"),
+	BLOCKUPDATES_LOAD_CHUNKS("blockupdateChunkLoading", false, true, "", "Toggles chunkloading with blockupdates",
+			"Blockupdate Chunk Loading");
 
 	private final String name;
 	private final String comment;
@@ -127,7 +129,7 @@ public enum CSToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoole
 		}
 
 		if (this.singlePlayer) {
-			return this.comment + "\n" + StringUtils.translate("tweakeroo.label.config_comment.single_player_only");
+			return this.comment + "\n" + StringUtils.translate("cheateroo.label.config_comment.single_player_only");
 		} else {
 			return this.comment;
 		}
