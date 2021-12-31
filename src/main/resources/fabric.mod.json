@@ -19,6 +19,9 @@
     "entrypoints": {
         "main": [
             "local.pixy.cheateroo.Cheateroo"
+        ],
+        "modmenu": [
+            "local.pixy.cheateroo.config.ModMenuImpl"
         ]
     },
 
