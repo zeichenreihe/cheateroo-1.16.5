@@ -1,4 +1,4 @@
-package local.pixy.cheateroo.util; // this file is from masa's tweakeroo: fi.dy.masa.tweakeroo.util.InventoryUtils
+package local.pixy.cheateroo.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import fi.dy.masa.malilib.util.Constants;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -23,6 +24,7 @@ import net.minecraft.util.math.MathHelper;
 import local.pixy.cheateroo.config.FeatureToggle;
 
 /**
+ * this file is from masa's tweakeroo: fi.dy.masa.tweakeroo.util.InventoryUtils
  * @author pixy
  * 
  */
@@ -127,12 +129,40 @@ public class InventoryUtils {
 	}
 
 	/**
+	 * @param player
+	 * @param hand
+	 * @param item
+	 */
+	public static void swapItemToHandExecuteSwapBack(PlayerEntity player, Hand hand, Item item, Runnable action) {
+		ItemStack itemStack = new ItemStack(item, item.getMaxCount());
+		int slotToSwap = fi.dy.masa.malilib.util.InventoryUtils.findSlotWithItem(player.currentScreenHandler, itemStack,
+				false);
+		MinecraftClient mc = MinecraftClient.getInstance();
+		InventoryUtils.swapItemToHand(player, hand, slotToSwap, true);
+		//mc.getNetworkHandler().sendPacket(new UpdateSelectedSlotC2SPacket(mc.player.inventory.selectedSlot));
+		action.run();
+		InventoryUtils.swapItemToHand(player, hand, slotToSwap, true);
+		//mc.getNetworkHandler().sendPacket(new UpdateSelectedSlotC2SPacket(mc.player.inventory.selectedSlot));
+	}
+
+	/**
 	 * 
 	 * @param player
 	 * @param hand
 	 * @param slotNumber
 	 */
-	private static void swapItemToHand(PlayerEntity player, Hand hand, int slotNumber) { // function from tweakeroo
+	private static void swapItemToHand(PlayerEntity player, Hand hand, int slotNumber) {
+		InventoryUtils.swapItemToHand(player, hand, slotNumber, false);
+	}
+
+	/**
+	 * Copied from tweakeroo
+	 * @param player
+	 * @param hand
+	 * @param slotNumber
+	 * @param doHotbarSwap If true swaps an item even if the item is in the hotbar
+	 */
+	private static void swapItemToHand(PlayerEntity player, Hand hand, int slotNumber, boolean doHotbarSwap) {
 		if (slotNumber != -1 && player.currentScreenHandler == player.playerScreenHandler) {
 			MinecraftClient mc = MinecraftClient.getInstance();
 			ScreenHandler container = player.playerScreenHandler;
@@ -141,7 +171,7 @@ public class InventoryUtils {
 				int currentHotbarSlot = player.inventory.selectedSlot;
 				Slot slot = container.getSlot(slotNumber);
 
-				if (slot != null && isHotbarSlot(slot)) {
+				if (slot != null && isHotbarSlot(slot) && (!doHotbarSwap)) {
 					player.inventory.selectedSlot = slotNumber - 36;
 					mc.getNetworkHandler().sendPacket(new UpdateSelectedSlotC2SPacket(player.inventory.selectedSlot));
 				} else {
