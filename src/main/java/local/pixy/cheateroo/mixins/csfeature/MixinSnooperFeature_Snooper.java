@@ -1,9 +1,9 @@
 package local.pixy.cheateroo.mixins.csfeature;
 
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.IllegalFormatException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,9 +14,7 @@ import java.util.TimerTask;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.google.gson.Gson;
@@ -26,9 +24,8 @@ import net.minecraft.util.snooper.Snooper;
 import local.pixy.cheateroo.Cheateroo;
 import local.pixy.cheateroo.Reference;
 import local.pixy.cheateroo.config.CSToggle;
+import local.pixy.cheateroo.config.Configs;
 import local.pixy.cheateroo.util.NetworkUtils;
-
-import net.fabricmc.fabric.mixin.event.lifecycle.WorldMixin;
 
 /**
  * @author pixy
@@ -57,25 +54,6 @@ public abstract class MixinSnooperFeature_Snooper {
 
 	private int counter;
 
-	@ModifyConstant(method = "<init>", constant = @Constant(stringValue = "http://snoop.minecraft.net/"))
-	public String replaceMojangSnooperWithCustomAddress(String oldAddress) {
-		String newAddress = "http://localhost/mcsnoop/";
-		try {
-			@SuppressWarnings("unused")
-			URL url = new URL(newAddress);
-		} catch (MalformedURLException e) {
-			newAddress = oldAddress;
-		}
-
-		Cheateroo.LOGGER.debug("old snooper address was: " + oldAddress + "; new address is " + newAddress);
-		return newAddress;
-	}
-	
-	@ModifyConstant(method = "<init>", constant = @Constant(stringValue = "?version="))
-	public String replaceFileEnding(String oldFileending) {
-		return ".php" + oldFileending;
-	}
-
 	@Inject(method = "method_5482", at = @At("HEAD"))
 	public void setupTimer(CallbackInfo ci) {
 		if (!this.active) {
@@ -91,9 +69,21 @@ public abstract class MixinSnooperFeature_Snooper {
 	 * @param data
 	 */
 	protected void sendData(HashMap<String, Object> data) {
-		// We don't want to send packets to minecraft.net.
-		if (this.snooperUrl.getHost() == "snoop.minecraft.net")
+		String location = this.snooperUrl.getPath().substring(1);
+		String urlString;
+		try {
+			urlString = String.format(Configs.Values.SNOOPER_URL.getStringValue(), location);
+		} catch (IllegalFormatException e) {
+			urlString = String.format(Configs.Values.SNOOPER_URL.getDefaultStringValue(), location);
+		}
+		URL url;
+		try {
+			url = new URL(urlString);
+		} catch (MalformedURLException e) {
+			Cheateroo.LOGGER.error("default snooper url is not parseable!!!!");
+			Cheateroo.LOGGER.error(e.toString());
 			return;
+		}
 
 		Map<String, String> sendData = new LinkedHashMap<String, String>();
 		Entry<String, Object> entry;
@@ -108,8 +98,8 @@ public abstract class MixinSnooperFeature_Snooper {
 		String jsonString = gson.toJson(sendData);
 
 		NetworkUtils.doTask(() -> {
-			NetworkUtils.sendData(this.snooperUrl, jsonString, "application/json",
-					NetworkUtils.getUserAgent(Reference.MOD_ID), "GET");
+			NetworkUtils.sendData(url, jsonString, "application/json", NetworkUtils.getUserAgent(Reference.MOD_ID),
+					"GET");
 		});
 	}
 
