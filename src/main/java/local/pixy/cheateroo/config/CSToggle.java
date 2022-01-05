@@ -21,7 +21,8 @@ public enum CSToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoole
 	MERCHANT_LEASHABLE("merchantLeashable", false, true, "",
 			"Toggles leashable MerchantEntities ( = villagers, wandering traders).", "Leashable Merchant Entites"),
 	BLOCKUPDATES_LOAD_CHUNKS("blockupdateChunkLoading", false, true, "", "Toggles chunkloading with blockupdates",
-			"Blockupdate Chunk Loading");
+			"Blockupdate Chunk Loading"),
+	CUSTOM_SNOOPER("customSnooper", false, false, "", "Toggles the snooper, to a custom address", "Custom Snooper");
 
 	private final String name;
 	private final String comment;

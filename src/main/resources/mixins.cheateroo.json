@@ -16,7 +16,8 @@
 		"server.MixinChunkTicket_ServerWorld"
 	],
 	"mixins": [
-		"csfeature.MerchantLeash"
+		"csfeature.MerchantLeash",
+		"csfeature.MixinSnooperFeature_Snooper"
 	],
 	"mixinPriority": 900,
 	"injectors": {
