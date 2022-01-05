@@ -15,9 +15,8 @@ import local.pixy.cheateroo.config.FeatureToggle;
  */
 @Mixin(Keyboard.class)
 public class MixinDisableNarratorButton_Keyboard {
-	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasControlDown()V", ordinal = 1))
-	public boolean redirect() {
-		org.apache.logging.log4j.LogManager.getLogger().warn("yes");
+	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasControlDown()Z", ordinal = 1))
+	private boolean redirect() {
 		if (FeatureToggle.DISABLE_NARRATOR_BUTTON.getBooleanValue())
 			return false;
 		return Screen.hasControlDown();
