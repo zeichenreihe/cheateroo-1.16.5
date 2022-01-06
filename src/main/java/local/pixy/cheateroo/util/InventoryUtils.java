@@ -68,7 +68,7 @@ public class InventoryUtils {
 	 * @param type
 	 * @param player
 	 * @return
-	 */
+	 *//*
 	private static int getSlotNumberForEquipmentType(EquipmentSlot type, @Nullable PlayerEntity player) {
 		switch (type) {
 		case MAINHAND:
@@ -86,7 +86,7 @@ public class InventoryUtils {
 		}
 
 		return -1;
-	}
+	}*/
 
 	/**
 	 * @param player
@@ -137,7 +137,7 @@ public class InventoryUtils {
 		ItemStack itemStack = new ItemStack(item, item.getMaxCount());
 		int slotToSwap = fi.dy.masa.malilib.util.InventoryUtils.findSlotWithItem(player.currentScreenHandler, itemStack,
 				false);
-		MinecraftClient mc = MinecraftClient.getInstance();
+		//MinecraftClient mc = MinecraftClient.getInstance();
 		InventoryUtils.swapItemToHand(player, hand, slotToSwap, true);
 		//mc.getNetworkHandler().sendPacket(new UpdateSelectedSlotC2SPacket(mc.player.inventory.selectedSlot));
 		action.run();
@@ -199,7 +199,7 @@ public class InventoryUtils {
 	 * @param player
 	 * @param type
 	 * @param sourceSlotNumber
-	 */
+	 *//*
 	private static void swapItemToEquipmentSlot(PlayerEntity player, EquipmentSlot type, int sourceSlotNumber) {
 		if (sourceSlotNumber != -1 && player.currentScreenHandler == player.playerScreenHandler) {
 			MinecraftClient mc = MinecraftClient.getInstance();
@@ -237,7 +237,7 @@ public class InventoryUtils {
 						mc.player);
 			}
 		}
-	}
+	}*/
 
 	/**
 	 * cleans BlockEntitiyTag.Items, from a ShulkerBox item

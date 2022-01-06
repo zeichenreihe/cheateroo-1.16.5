@@ -14,7 +14,7 @@ import local.pixy.cheateroo.server.ChunkTicket;
 @Mixin(ServerWorld.class)
 public abstract class MixinChunkTicket_ServerWorld {
 	@Inject(method = "addEntity", at = @At("HEAD"))
-	private void loadChunkOnEntityCreation(Entity entity, CallbackInfoReturnable ci) {
+	private void loadChunkOnEntityCreation(Entity entity, CallbackInfoReturnable<?> ci) {
 		ChunkTicket.loadEntityTicking((ServerWorld) (Object) this, new ChunkPos(entity.getBlockPos()));
 	}
 }
