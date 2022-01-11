@@ -45,7 +45,7 @@ public class ChunkTicket {
 		@Override
 		public void onValueChanged(ConfigInteger config) {
 			ChunkTicket.update(config.getIntegerValue());
-			Cheateroo.LOGGER.info(String.format("Updated cheateroo ChunkTicket type to %d ticks!", config.getIntegerValue()));
+			Cheateroo.LOGGER.debug(String.format("Updated cheateroo ChunkTicket type to %d ticks!", config.getIntegerValue()));
 		}
 
 	}
