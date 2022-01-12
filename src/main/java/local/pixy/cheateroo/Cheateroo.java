@@ -14,4 +14,15 @@ public class Cheateroo implements ModInitializer {
 	public void onInitialize() {
 		InitializationHandler.getInstance().registerInitializationHandler(new InitHandler());
 	}
+
+	public static boolean allowMultiplayer() {
+		switch (System.getProperty("cheateroo.allowMultiplayer", "true")) {
+		case "false":
+			return false;
+		case "true":
+			return true;
+		default:
+			return false;
+		}
+	}
 }

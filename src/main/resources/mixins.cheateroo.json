@@ -9,7 +9,8 @@
 		"callback.OnClientChatMessage",
 		"MixinChristmasChest_ChestBlockEntityRender",
 		"MixinDisableNarratorButton_Keyboard",
-		"MixinBucketPickup_MinecraftClient"
+		"MixinBucketPickup_MinecraftClient",
+		"MixinDisableMultiplayer_TitleScreen"
 	],
 	"server": [
 		"server.MixinChunkTicket_AbstractBlockState",
