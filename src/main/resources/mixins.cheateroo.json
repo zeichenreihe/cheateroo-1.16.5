@@ -10,7 +10,8 @@
 		"MixinChristmasChest_ChestBlockEntityRender",
 		"MixinDisableNarratorButton_Keyboard",
 		"MixinBucketPickup_MinecraftClient",
-		"MixinDisableMultiplayer_TitleScreen"
+		"MixinDisableMultiplayer_TitleScreen",
+		"MixinDisplayPlayerHealth_EntityRenderer"
 	],
 	"server": [
 		"server.MixinChunkTicket_AbstractBlockState",

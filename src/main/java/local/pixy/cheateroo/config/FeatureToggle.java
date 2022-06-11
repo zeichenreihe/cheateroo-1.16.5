@@ -31,7 +31,10 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
 			"Christmas Chest Texture"),
 	DISABLE_NARRATOR_BUTTON("disableNarratorButton", false, false, "",
 			"Turns off the annoying Ctrl+B narrator cycling.", "Disable Narrator Cycle Button"),
-	BUCKET_FILLER("bucketFiller", false, false, "", "Automaticly fills buckets if you get a fluid in your crosshair.", "Bucket Fill");
+	BUCKET_FILLER("bucketFiller", false, false, "", "Automaticly fills buckets if you get a fluid in your crosshair.",
+			"Bucket Fill"),
+	DISPLAY_PLAYER_HEALTH("displayPlayerHealth", false, false, "",
+			"Renders the health of the player after the name, in color.", "Player Health Display");
 
 	private final String name;
 	private final String comment;

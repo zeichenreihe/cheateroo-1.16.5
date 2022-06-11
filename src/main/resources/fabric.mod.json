@@ -15,7 +15,7 @@
 
     "license": "LGPLv3",
     "icon": "assets/cheateroo/icon.png",
-    "environment": "client",
+    "environment": "*",
     "entrypoints": {
         "main": [
             "local.pixy.cheateroo.Cheateroo"
