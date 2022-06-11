@@ -18,6 +18,7 @@ public class MixinDisableMultiplayer_TitleScreen {
 	/**
 	 * Mixin to disable multiplayer, so nobody can use this mod for playing at
 	 * anarchy servers and stuff.
+	 * @param mc 
 	 * 
 	 * @return the modified isMultiplayerEnabled variable
 	 */

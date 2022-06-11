@@ -24,8 +24,8 @@ public abstract class MixinCheatFly_LivingEntity extends Entity {
 	/**
 	 * A mixin to stop the elytra movement sideways.
 	 * 
-	 * @param entity
-	 * @param movementInput
+	 * @param entity        Object passed to the mixin.
+	 * @param movementInput Object passed to the mixin.
 	 */
 	@Redirect(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;travel(Lnet/minecraft/util/math/Vec3d/Vec3d;)V"))
 	public void travelMixin(LivingEntity entity, Vec3d movementInput) {
