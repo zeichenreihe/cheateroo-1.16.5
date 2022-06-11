@@ -14,9 +14,14 @@ import net.minecraft.util.math.Direction;
 import local.pixy.cheateroo.interfaces.IClientCommandHandler;
 import local.pixy.cheateroo.util.ChatUtils;
 
+/**
+ * A command to interact (use) with a block position.
+ * 
+ * @author pixy
+ *
+ */
 public class ButtonPress implements IClientCommandHandler {
-
-	public static final List<String> COMMAND_LIST = Arrays.asList("button-press");
+	private static final List<String> COMMAND_LIST = Arrays.asList("button-press");
 
 	@Override
 	public void onClientCommandCall(MinecraftClient mc, String message, String[] parts, String testedCommand) {
