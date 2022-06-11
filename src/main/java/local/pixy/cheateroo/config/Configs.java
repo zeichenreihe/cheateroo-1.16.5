@@ -22,7 +22,8 @@ public class Configs implements IConfigHandler {
 				"The amount of ticks a chunk keeps loaded by the chunk load on blockupdate feature.");
 		public static final ConfigString SNOOPER_URL = new ConfigString("snooperUrl", "http://localhost/mcsnoop/%s.php",
 				"The address to post the snooper data to. %%%%s will be replaced with either \"client\" or \"server\".");
-		public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(CHUNK_LOADING_TIME, SNOOPER_URL);
+		public static final ConfigString COMMAND_PREFIX = new ConfigString("commandPrefix", ".", "The prefix for the chat commands.");
+		public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(CHUNK_LOADING_TIME, SNOOPER_URL, COMMAND_PREFIX);
 	}
 
 	private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
